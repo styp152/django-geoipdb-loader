@@ -23,6 +23,8 @@ env:
 
     - TOXENV=isort
 
+    - TOXENV=coverage
+
 
 before_install:
   - pip install coveralls
@@ -38,7 +40,6 @@ install:
 script:
   - tox -v
 after_success:
-  - tox -e coverage-report
   - coveralls
 after_failure:
   - more .tox/log/* | cat
